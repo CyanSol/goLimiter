@@ -6,7 +6,7 @@ You can limit your resources by specifying a limit number and a time interval.
 
         import (
         	"fmt"
-        	"github.com/cyanSol/go-limit"
+        	"github.com/CyanSol/go-limiter"
         	"time"
         )
         
@@ -15,7 +15,7 @@ You can limit your resources by specifying a limit number and a time interval.
         	limiter1 := go_limit.NewLimiter(60*time.Second, 100)
             //Limiter.try checks if the limit is reached and respondes with an error if the limiter is not active (killed) 
             // and with a response struct that contains if the limit is reached and if yes the time left for the limiter to reset
-            res, err := limiter1.Try()
+            res, err := limiter1.Check()
        
             if err != nil {
                 fmt.Println(err)
