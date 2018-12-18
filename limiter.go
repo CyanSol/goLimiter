@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"time"
 )
+
 //The Limiter Object
 type Limiter struct {
 	ticker       *time.Ticker
@@ -28,7 +29,7 @@ func NewLimiter(timeInterval time.Duration, limitNumber int) *Limiter {
 	limit := &Limiter{}
 	limit.ticker = time.NewTicker(timeInterval)
 	limit.limit = make(chan int, limitNumber)
-	limit.req = make(chan int,1)
+	limit.req = make(chan int, 1)
 	limit.timeToUnlock = time.Now().Add(timeInterval)
 	limit.active = true
 	limit.killLimiter = make(chan bool, 1)
