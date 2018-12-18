@@ -6,7 +6,7 @@ You can limit your resources by specifying a limit number and a time interval.
 
         import (
         	"fmt"
-        	"github.com/cyanSol/go-limit"
+        	"github.com/CyanSol/go-limit"
         	"time"
         )
         
@@ -29,7 +29,7 @@ You can limit your resources by specifying a limit number and a time interval.
             
             //Limiter.Kill makes the limiter inactive permanently 
         	err = limiter1.Kill()
-        
+       
         
         }
 
