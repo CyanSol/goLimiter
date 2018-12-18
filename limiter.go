@@ -18,7 +18,7 @@ type Limiter struct {
 	killedTime   time.Time
 }
 
-//The response that is returned when checked
+//LimiterResponse is the response that is returned by Check
 type LimiterResponse struct {
 	IsReached        bool
 	TimeLeftToUnlock time.Duration
