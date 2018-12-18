@@ -3,6 +3,9 @@
 go-limit is a package for controlling the use of resources in your application. 
 You can limit your resources by specifying a limit number and a time interval. 
 
+# use 
+"go get github.com/CyanSol/goLimiter"
+
 
         import (
         	"fmt"
