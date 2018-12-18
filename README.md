@@ -6,13 +6,13 @@ You can limit your resources by specifying a limit number and a time interval.
 
         import (
         	"fmt"
-        	"github.com/CyanSol/go-limiter"
+        	"github.com/CyanSol/goLimiter"
         	"time"
         )
         
         func main() {
             //this is a new limiter that limits the execution of a specific resource up to 100 times in a minute
-        	limiter1 := go_limit.NewLimiter(60*time.Second, 100)
+        	limiter1 := goLimiter.NewLimiter(60*time.Second, 100)
             //Limiter.try checks if the limit is reached and respondes with an error if the limiter is not active (killed) 
             // and with a response struct that contains if the limit is reached and if yes the time left for the limiter to reset
             res, err := limiter1.Check()

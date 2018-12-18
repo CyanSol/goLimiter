@@ -1,11 +1,11 @@
-package go_limiter
+package goLimiter
 
 import (
 	"errors"
 	"fmt"
 	"time"
 )
-
+//The Limiter Object
 type Limiter struct {
 	ticker       *time.Ticker
 	limit        chan int
@@ -17,12 +17,13 @@ type Limiter struct {
 	killedTime   time.Time
 }
 
+//The response that is returned when checked
 type LimiterResponse struct {
 	IsReached        bool
 	TimeLeftToUnlock time.Duration
 }
 
-
+//NewLimiter returns a new limiter
 func NewLimiter(timeInterval time.Duration, limitNumber int) *Limiter {
 	limit := &Limiter{}
 	limit.ticker = time.NewTicker(timeInterval)
@@ -54,6 +55,7 @@ func (limit *Limiter) run(timeInterval time.Duration, limitNumber int) {
 	}
 }
 
+//Check checks if the limit is reached
 func (limit *Limiter) Check() (*LimiterResponse, error) {
 	limiterRes := LimiterResponse{}
 	if !limit.active {
@@ -67,6 +69,7 @@ func (limit *Limiter) Check() (*LimiterResponse, error) {
 	return &limiterRes, nil
 }
 
+//Kill makes the limiter unavailable
 func (limit *Limiter) Kill() error {
 	if !limit.active {
 		return errors.New("limiter is already killed")

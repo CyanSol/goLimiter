@@ -1,4 +1,4 @@
-package go_limiter
+package goLimiter
 
 import (
 	"fmt"
