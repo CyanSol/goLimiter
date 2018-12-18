@@ -1,4 +1,4 @@
-package go_limit
+package go_limiter
 
 import (
 	"errors"
